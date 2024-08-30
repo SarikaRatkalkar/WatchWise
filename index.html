@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+     rel="stylesheet"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Watchwise</title>
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">
+            <a href="#">Watchwise</a>
+        </div>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#product">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="#" class="icon" onclick="toggleSearch()"><i class="fa fa-search"></i></a>
+            <a href="#" class="icon" onclick="toggleModal('account', event)"><i class="fa fa-user"></i></a>
+            <a href="#" class="icon" onclick="toggleModal('cart', event)"><i class="fa fa-shopping-cart"></i></a>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div id="search-bar" style="display: none;">
+        <input type="text" id="search-input" placeholder="Search..." oninput="searchProducts()">
+    </div>
+
+    <!-- Account Modal -->
+    <div id="account-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('account', event)">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('cart', event)">&times;</span>
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </ul>
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+
+      
+<!-- Home section -->
+    <header class="section__container header__container" id="home">
+        <div class="header__image">
+            <img src="banner3.jpg" alt="header"/>
+        </div>
+        <div class="header__content">
+            <div>
+                <h1>Watch that you like</h1>
+                <p>
+                    Discover timeless elegance with our exclusive collection of luxury timepieces. Each watch is crafted with precision to elevate your style and mark every moment with sophistication. Our collection offers something for every discerning individual. 
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section__container deals__conatiner">
+        <div class="deals__card">
+            <h2 class="section__header">Hot deals for you</h2>
+            <p>Online shopping for retail sales direct to consumers</p>
+        </div>
+        <div class="deals__card">
+            <span><i class="ri-cash-line"></i></span>
+            <h4>1.5% cashback reward</h4>
+            <p> Enjoy a 1.5% cashback reward on every purchase made through our website. This means for every dollar you spend, you'll earn 1.5 cents back as a reward. It’s our way of thanking you for choosing us and making your shopping experience even more rewarding.</p>
+        </div>
+        <div class="deals__card">
+            <span><i class="ri-calendar-schedule-line"></i></span>
+            <h4>30 day terms</h4>
+            <p>We offer a generous 30-day terms period for your convenience. This means you have a full 30 days from the date of purchase to enjoy your new timepiece, ensuring it meets all your expectations. If for any reason you're not completely satisfied, you can return the product within this period.</p>
+        </div>
+        <div class="deals__card">
+            <span><i class="ri-money-rupee-circle-line"></i></span>
+            <h4>Save money</h4>
+            <p>Take advantage of our special offers and save money on your next purchase. We regularly feature discounts and promotions that make luxury timepieces more affordable. Keep an eye on our website for the latest deals and limited-time offers.</p>
+        </div>
+    </section>
+
+
+    <!-- About section -->
+    <section class="section__container about__conatiner" id="about">
+        <div class="about__header">
+            <div>
+                <h2 class="section__header">About us</h2>
+                <p class="section__description">
+                    At Watchwise, we believe that a watch is more than just a timekeeper—it's a statement of style, a reflection of personality, and a symbol of craftsmanship. Founded with a passion for precision and elegance, our mission is to offer a curated collection of timepieces that cater to both connoisseurs and everyday enthusiasts alike.
+                </p>
+            </div>
+            <button class="about__btn">Learn More</button>
+        </div>
+        <div class="about__content">
+            <div class="about__image">
+                <img src="photo-collage.png.png" alt="about"/>
+            </div>
+            <div class="about__grid">
+                <div class="about__card">
+                    <h3>.1</h3>
+                    <h4>Craftsmanship Passion</h4>
+                    <p> At Watchwise, we are dedicated to offering timepieces that reflect the highest standards of quality and craftsmanship. Each watch in our collection is carefully selected to ensure it meets the expectations of both enthusiasts and collectors.</p>
+                </div>
+                <div class="about__card">
+                    <h3>.2</h3>
+                    <h4>Curated Collection</h4>
+                    <p> Our collection features a diverse range of watches, from timeless classics to cutting-edge designs. We source our products from reputable brands and independent artisans worldwide, ensuring a unique and comprehensive selection for our customers.</p>
+                </div>
+                <div class="about__card">
+                    <h3>.3</h3>
+                    <h4>Customer-Centric Experience</h4>
+                    <p> Your satisfaction is our top priority. We strive to provide an exceptional shopping experience, from browsing our online store to receiving your purchase. Our knowledgeable team is always ready to assist you in finding the perfect watch.</p>
+                </div>
+                <div class="about__card">
+                    <h3>.4</h3>
+                    <h4>Accessibility and Affordability</h4>
+                    <p> We believe that luxury should be accessible to all. Watchwise offers competitive pricing on all our products, making it easier for you to own a high-quality watch that suits your style and budget, without compromising on quality or design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Product section -->
+    <section class="section__container product__conatiner" id="product">
+        <h2 class="section__header">Products</h2>
+        <div class="product__grid">
+            <div class="product__card">
+                <h4>Designer Watch</h4>
+                <div class="add-to-cart">
+                    <p>1000/-</p>
+                    <button class="about__btn">Add to Cart</button>
+                </div>
+                
+                <img src="watch15.jpg" alt="product" >
+            </div>
+            <div class="product__card">
+                <h4>Ethnic Watch</h4>
+                <div class="add-to-cart">
+                    <p>2000/-</p>
+                    <button class="about__btn">Add to Cart</button>
+                </div>
+                <img src="watch12.jpg" alt="product" >
+            </div>
+            <div class="product__card">
+                <h4>Sofiscated Watch</h4>
+                <div class="add-to-cart">
+                    <p>4000/-</p>
+                    <button class="about__btn">Add to Cart</button>
+                </div>
+                <img src="watch13.jpg" alt="product" >
+            </div>
+            <div class="product__card">
+                <h4>Luxurious Watch</h4>
+                <div class="add-to-cart">
+                    <p>7000/-</p>
+                    <button class="about__btn">Add to Cart</button>
+                </div>
+                <img src="menwatch2.jpg" alt="product" >
+            </div>
+            <div class="product__card">
+                <h4>Durables Watch</h4>
+                <div class="add-to-cart">
+                    <p>10000/-</p>
+                    <button class="about__btn">Add to Cart</button>
+                </div>
+                <img src="watch16.jpg" alt="product" >
+            </div>
+            <div class="product__card">
+                <h4>Versatile Watch</h4>
+                <div class="add-to-cart">
+                    <p>20000/-</p>
+                    <button class="about__btn">Add to Cart</button>
+                </div>
+                <img src="watch17.jpg" alt="product" >
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer section -->
+    <footer class="footer" id="contact">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <div class="footer__logo">
+                    <a href="#" class="logo">Watch Shop</a>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ipsam, autem deleniti voluptas explicabo quis maiores aperiam optio obcaecati alias eius error at, et non quaerat quo, velit aliquid? Accusamus.
+                </p>
+                <ul class="footer__socials">
+                    <li>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-instagram-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Payrol</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Resources</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Support</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Affilitates</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Cancelation Policy</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bar">
+            Copyright &copy; 2024 Watch Shop. All rights reserved.
+        </div>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+   <script src="script.js"></script>
+</body>
+</html>
